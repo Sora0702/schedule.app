@@ -25,14 +25,14 @@
       <tr>
         <td><%= task.id %></td>
         <td><%= task.title %></td>
-        <td><%= task.start_day %></td>
-        <td><%= task.finish_day %></td>
+        <td><%= task.start_day.strftime("%Y/%m/%d") %></td>
+        <td><%= task.finish_day.strftime("%Y/%m/%d") %></td>
         <td>
           <% if task.all_day == "1" %>
             ○
           <% end %>
         </td>
-        <td><%= task.updated_at.to_s(:datetime_jp) %></td>
+        <td><%= task.updated_at.strftime("%Y/%m/%d %H") %></td>
         <td><%= link_to "参照", task %></td>
         <td><%= link_to "編集", [:edit, task] %></td>
         <td><%= link_to "削除", task, method: :delete, data: { confirm:"本当に削除しますか？"} %></td>
@@ -40,3 +40,5 @@
     <% end %>
   </tbody>
 </table>
+<p><%= "予定合計#{@tasks.length}件" %></p>
+<p><%= "本日の日付 #{Time.now.strftime("%Y/%m/%d")}" %></p>
