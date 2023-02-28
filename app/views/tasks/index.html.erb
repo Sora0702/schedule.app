@@ -1,4 +1,5 @@
 <h3>予定一覧</h3>
+<p><%= link_to "予定の新規追加", :new_task %></p>
 <table>
   <thead>
     <tr>
@@ -8,17 +9,28 @@
       <th>終了日</th>
       <th>終日</th>
       <th>更新日時</th>
+      <th>参照</th>
+      <th>更新</th>
+      <th>削除</th>
     </tr>
   </thead>
 
   <tbody>
-    <%= @tasks.each do |task| %>
+    <% @tasks.each do |task| %>
       <tr>
         <td><%= task.id %></td>
+        <td><%= task.title %></td>
         <td><%= task.start_day %></td>
         <td><%= task.finish_day %></td>
-        <td><%= task.all_day %></td>
-        <td><%= task.updated_at %></td>
+        <td>
+          <% if task.all_day == "1" %>
+            ○
+          <% end %>
+        </td>
+        <td><%= task.updated_at.to_s(:datetime_jp) %></td>
+        <td><%= link_to "参照", task %></td>
+        <td><%= link_to "編集", [:edit, task] %></td>
+        <td><%= link_to "削除", task, method: :delete, data: { confirm:"本当に削除しますか？"} %></td>
       </tr>
     <% end %>
   </tbody>

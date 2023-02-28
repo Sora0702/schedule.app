@@ -1,0 +1,25 @@
+<%= link_to "一覧に戻る", :tasks %>
+<p><%= @task.title %></p>
+
+<table>
+  <tr>
+    <td>開始日</td>
+    <td><%= @task.start_day %></td>
+  </tr>
+  <tr>
+    <td>終了日</td>
+    <td><%= @task.finish_day %></td>
+  </tr>
+  <tr>
+    <td>終日</td>
+    <td>
+      <% if @task.all_day == "1" %>
+        ○
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+    <td>スケジュールメモ</td>
+    <td><%= @task.memo %></td>
+  </tr>
+</table> 
