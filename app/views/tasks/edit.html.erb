@@ -1,5 +1,7 @@
 <h3>予定を編集してください</h3>
 
+<%= render "shared/error", obj:@task %>
+
 <%= form_with model: @task do |f| %>
   <div>
     <%= f.label :title ,"タイトル" %>

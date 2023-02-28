@@ -1,8 +1,6 @@
 <h3>予定の新規追加</h3>
 
-<% if flash[:notice] %>
-  <p class="notice"><%= flash[:notice] %></p>
-<% end %>
+<%= render "shared/error", obj:@task %>
 
 <%= form_with model: @task do |f| %>
   <div>
