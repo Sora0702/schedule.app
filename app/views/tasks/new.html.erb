@@ -1,36 +1,35 @@
-<h3>予定の新規追加</h3>
+<div class="container">
+  <h3>予定の新規追加</h3>
 
-<%= render "shared/error", obj:@task %>
+  <%= render "shared/error", obj:@task %>
 
-<%= form_with model: @task do |f| %>
-  <div>
-    <%= f.label :title ,"タイトル" %>
-    <%= f.text_field :title %>
-  </div>
+  <%= form_with model: @task do |f| %>
+    <div class="row Row">
+      <div class="col-12">
+        <%= f.label :title ,"タイトル",class: "form-label" %>
+        <%= f.text_field :title, class: "form-control" %>
+      </div>
+      <div class="col-6">
+        <%= f.label :start_day ,"開始日", class: "form-label" %>
+        <%= f.date_field :start_day, class: "form-control" %>
+      </div>
+      <div class="col-6">
+        <%= f.label :finish_day ,"終了日", class: "form-label" %>
+        <%= f.date_field :finish_day, class: "form-control" %>
+      </div>
+      <div class="col-12">
+        <%= f.check_box :all_day, class: "form-check-input" %>
+        <label class="form-check-label">終日の場合はチェックを入れます。</label>
+      </div>
+      <div class="col-12">
+        <%= f.label :memo ,"スケジュールメモ", class: "form-label" %>
+        <%= f.text_area :memo, class: "form-control" %>
+      </div>
 
-  <div>
-    <div>
-      <%= f.label :start_day ,"開始日" %>
-      <%= f.date_field :start_day %>
+      <div class="Form-buttons">
+        <%= link_to "キャンセル", :tasks, class: "btn btn-ssecondary" %>
+        <%= f.submit "保存", class: "btn btn-primary" %>
+      </div>
     </div>
-    <div>
-      <%= f.label :finish_day ,"終了日" %>
-      <%= f.date_field :finish_day %>
-    </div>
-  </div>
-
-  <div>
-    <%= f.check_box :all_day %>
-    <p>終日の場合はチェックを入れます。</p>
-  </div>
-
-  <div>
-    <%= f.label :memo ,"スケジュールメモ" %>
-    <%= f.text_field :memo %>
-  </div>
-
-  <div>
-    <%= link_to "キャンセル", :tasks %>
-    <%= f.submit "保存" %>
-  </div>
-<% end %>
+  <% end %>
+</div>
