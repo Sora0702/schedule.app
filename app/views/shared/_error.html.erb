@@ -1,7 +1,5 @@
 <% if obj.errors.any? %>
-  <% obj.errors.full_messages.each do |message| %>
-    <ul>
-      <li><%= message %></li>
-    </ul>
+  <% if obj.errors.include?(atr) %>
+    <p><%= obj.errors.full_messages_for(atr).first %></p>
   <% end %>
 <% end %>
