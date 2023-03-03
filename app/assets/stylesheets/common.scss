@@ -74,10 +74,20 @@ body {
   }
 }
 
-.Row {
-  div {
-    margin-top: 20px;
-  }
+.Form-content {
+  margin-top: 10px !important;
+}
+
+.Error-message {
+  color: red;
+  font-size: 10px;
+}
+
+.Must-content:after {
+  content: "*";
+  color: red;
+  font-size: 14px;
+  margin-left: 4px;
 }
 
 .Form-buttons {
@@ -113,4 +123,24 @@ body {
 .Table-detail th {
   background-color: #f7f9fc !important;
   width: 140px;
+}
+
+.Snackbar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 20px;
+  background-color: #ff4949;
+  font-size: 12px;
+  z-index: 1;
+  width: fit-content;
+  margin: auto;
+  border-radius: 4px;
+  height: 36px;
+}
+
+.notice {
+  color: #fff;
+  text-align: center;
+  line-height: 36px;
 }

@@ -10,10 +10,6 @@
     <% end %>
   </div>
 
-  <% if flash[:notice] %>
-    <p class="notice"><%= flash[:notice] %></p>
-  <% end %>
-
   <div class="table-responsive Table-responsive">
     <table class="table Table">
       <thead>
@@ -58,3 +54,5 @@
     </div>
   </footer>
 </div>
+
+<%= render "shared/flash-message", atr: :notice %>

@@ -1,5 +1,5 @@
 <% if obj.errors.any? %>
   <% if obj.errors.include?(atr) %>
-    <p><%= obj.errors.full_messages_for(atr).first %></p>
+    <p class="Error-message"><%= obj.errors.full_messages_for(atr).first %></p>
   <% end %>
 <% end %>

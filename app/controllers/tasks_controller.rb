@@ -13,6 +13,7 @@ class TasksController < ApplicationController
       flash[:notice] = "新規のスケジュールを登録しました。"
       redirect_to :tasks
     else
+      flash.now[:notice] = "スケジュールの新規登録に失敗しました。"
       render "new"
     end
   end
@@ -31,6 +32,7 @@ class TasksController < ApplicationController
       flash[:notice] = "スケジュールメモを更新しました。"
       redirect_to :tasks
     else
+      flash.now[:notice] = "スケジュールの更新に失敗しました。"
       render "edit"
     end
   end

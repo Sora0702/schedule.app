@@ -12,7 +12,7 @@ class Task < ApplicationRecord
   def finish_day_not_be_before_start_day
     unless start_day.nil? == true || finish_day.nil? == true
       if start_day > finish_day
-        errors.add(:finish_day, "開始日が終了日の後日となっています。")
+        errors.add(:finish_day, "が開始日より前日となっています。")
       end
     end
   end
