@@ -3,7 +3,7 @@ class Task < ApplicationRecord
   #タイトルは最大20文字
   #終了日は、開始日以降の日付
   #スケジュールメモは、最大５００文字
-  validates :title, presence: true, length: { maximum: 30 }
+  validates :title, presence: true, length: { maximum: 20 }
   validates :start_day, presence: true
   validates :finish_day, presence: true
   validates :memo, length: { maximum: 500 }
