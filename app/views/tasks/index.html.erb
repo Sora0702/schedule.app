@@ -1,0 +1,58 @@
+<div class="container-fluid">
+  <div class="Pagetitle">
+    <h2 class="Pagetitle-text">予定一覧</h2>
+    <%= link_to :new_task, class: "btn btn-outline-primary Btn" do %>
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+      </svg>
+      予定の新規追加
+    <% end %>
+  </div>
+
+  <div class="table-responsive Table-responsive">
+    <table class="table Table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>タイトル</th>
+          <th>開始日</th>
+          <th>終了日</th>
+          <th>終日</th>
+          <th>更新日時</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @tasks.each do |task| %>
+          <tr>
+            <td><%= task.id %></td>
+            <td><%= task.title %></td>
+            <td><%= task.start_day.strftime("%Y/%m/%d") %></td>
+            <td><%= task.finish_day.strftime("%Y/%m/%d") %></td>
+            <td>
+              <% if task.all_day == "1" %>
+                ○
+              <% end %>
+            </td>
+            <td><%= task.updated_at.strftime("%Y/%m/%d %H:%M") %></td>
+            <td><%= link_to "参照", task %></td>
+            <td><%= link_to "編集", [:edit, task] %></td>
+            <td><%= link_to "削除", task, method: :delete, data: { confirm:"予定を削除しますか？"} %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <footer class="card Footer">
+    <div class="card-body Footer-body">
+      <p><%= "予定合計#{@tasks.length}件" %></p>
+      <p><%= "本日の日付 #{Time.now.strftime("%Y/%m/%d")}" %></p>
+    </div>
+  </footer>
+</div>
+
+<%= render "shared/flash-message", atr: :notice %>
